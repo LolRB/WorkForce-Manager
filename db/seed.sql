@@ -21,7 +21,7 @@ VALUES
     ('Customer Support Specialist', 60000, 4);
 
 INSERT INTO employees
-    (first_name, last_name, position_id, manager_ref)
+    (first_name, last_name, role_id, manager_ref)
 VALUES
     ('Alice', 'Johnson', 1, NULL),
     ('Bob', 'Smith', 2, 1),

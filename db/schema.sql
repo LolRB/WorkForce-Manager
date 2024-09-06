@@ -21,8 +21,8 @@ CREATE TABLE employees (
   employees_id SERIAL PRIMARY KEY,
   first_name VARCHAR(50) NOT NULL,
   last_name VARCHAR(50) NOT NULL,
-  position_id INTEGER NOT NULL,
+  role_id INTEGER NOT NULL,
   manager_ref INTEGER,
-  CONSTRAINT fk_position FOREIGN KEY (position_id) REFERENCES roles(roles_id) ON DELETE CASCADE,
+  CONSTRAINT fk_role FOREIGN KEY (role_id) REFERENCES roles(roles_id) ON DELETE CASCADE,
   CONSTRAINT fk_manager_ref FOREIGN KEY (manager_ref) REFERENCES employees(employees_id) ON DELETE SET NULL
 );

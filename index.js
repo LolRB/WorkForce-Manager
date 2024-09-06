@@ -1,6 +1,6 @@
 import inquirer from "inquirer";
 import logo from "asciiart-logo";
-import * as db from "./db/index.js";
+import db from "./db/index.js";
 
 // Start the application
 initialize();
@@ -89,7 +89,8 @@ function displayEmployees() {
       console.log("\n");
       console.table(rows);
     })
-    .then(() => displayMainMenu());
+    .then(() => displayMainMenu())
+    .catch(err => console.error(err));
 }
 
 function displayEmployeesByDepartment() {
@@ -165,7 +166,7 @@ function deleteEmployee() {
           choices: employeeOptions,
         },
       ])
-      .then((response) => db.removeEmployee(response.employeeId))
+      .then((response) => db.deleteEmployee(response.employeeId))
       .then(() => console.log("Employee removed successfully."))
       .then(() => displayMainMenu());
   });
@@ -207,7 +208,7 @@ function modifyEmployeeRole() {
               },
             ])
             .then((response) =>
-              db.updateEmployeeRole(employeeId, response.roleId)
+              db.modifyEmployeeRole(employeeId, response.roleId)
             )
             .then(() => console.log("Employee role updated successfully."))
             .then(() => displayMainMenu());
@@ -254,7 +255,7 @@ function modifyEmployeeManager() {
               },
             ])
             .then((response) =>
-              db.updateEmployeeManager(employeeId, response.managerId)
+              db.modifyEmployeeManager(employeeId, response.managerId)
             )
             .then(() => console.log("Employee manager updated successfully."))
             .then(() => displayMainMenu());
@@ -323,7 +324,7 @@ function deleteRole() {
           choices: roleOptions,
         },
       ])
-      .then((response) => db.removeRole(response.roleId))
+      .then((response) => db.deleteRole(response.roleId))
       .then(() => console.log("Role deleted successfully."))
       .then(() => displayMainMenu());
   });
@@ -373,7 +374,7 @@ function deleteDepartment() {
           choices: departmentOptions,
         },
       ])
-      .then((response) => db.removeDepartment(response.departmentId))
+      .then((response) => db.deleteDepartment(response.departmentId))
       .then(() => console.log("Department deleted successfully."))
       .then(() => displayMainMenu());
   });
