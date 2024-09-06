@@ -1,61 +1,61 @@
 # WorkForce-Manager
 
-## Description
+## Overview
 
-Employee Tracker is a command-line application built with Node.js, Inquirer, and PostgreSQL that allows business owners to manage their company's employee database. The application provides an interface for non-developers to easily view and interact with information stored in the database, including departments, roles, and employees.
+WorkForce-Manager is a command-line tool designed with Node.js, Inquirer, and PostgreSQL to help business owners effectively oversee their employee records. This tool provides a user-friendly interface for interacting with your company's employee data, including details on departments, job roles, and employees.
 
-## Table of Contents
+## Contents
 
-- [Description](#description)
-- [Usage](#usage)
+- [Overview](#overview)
+- [Getting Started](#getting-started)
 - [Features](#features)
-- [Schema](#schema)
-- [Acknowledgements](#acknowledgements)
+- [Database Schema](#database-schema)
+- [Credits](#credits)
 
-## Usage
+## Getting Started
 
-To start the application, run the following command in your terminal:
+To launch the application, use the following command in your terminal:
 
 ```bash
 node index.js
 ```
 
-You will be presented with a menu of options to manage your company's database, including viewing all departments, roles, and employees, as well as adding and updating information.
+The application will present a menu with various options to manage your company's data. You can view all departments, roles, and employees, as well as add or update records as needed.
 
 ## Features
 
-- View All Departments: Displays a formatted table showing department names and their IDs.
-- View All Roles: Shows the job title, role ID, department, and salary for each role.
-- View All Employees: Displays employee data, including IDs, names, job titles, departments, salaries, and managers.
-- Add Department: Prompts for the department name and adds it to the database.
-- Add Role: Prompts for the role name, salary, and department, then adds the role to the database.
-- Add Employee: Prompts for the employee's name, role, and manager, then adds the employee to the database.
-- Update Employee Role: Prompts to select an employee and their new role, updating the information in the database.
+- View Departments: Lists all departments with their names and IDs.
+- View Roles: Displays roles with details such as title, role ID, department, and salary.
+- View Employees:Shows employee information including IDs, names, job titles, departments, salaries, and managers.
+- Add Department: Prompts you to enter a department name and adds it to the database.
+- Add Role: Allows you to input a role title, salary, and department, then saves it to the database.
+- Add Employee: Prompts for an employee's name, role, and manager, and adds this information to the database.
+- Update Employee Role: Lets you select an employee and assign a new role, updating the database accordingly.
 
-## Schema
+## Database Schema
 
-The database schema consists of three tables:
+The database schema consists of three main tables:
 
 1. Department
 
-   - id: SERIAL PRIMARY KEY
-   - name: VARCHAR(30) UNIQUE NOT NULL
+   - `id`: SERIAL PRIMARY KEY
+   - `name`: VARCHAR(30) UNIQUE NOT NULL
 
 2. Role
 
-   - id: SERIAL PRIMARY KEY
-   - title: VARCHAR(30) UNIQUE NOT NULL
-   - salary: DECIMAL NOT NULL
-   - department_id: INTEGER NOT NULL (References department.id)
+   - `id`: SERIAL PRIMARY KEY
+   - `title`: VARCHAR(30) UNIQUE NOT NULL
+   - `salary`: DECIMAL NOT NULL
+   - `department_id`: INTEGER NOT NULL (References `department.id`)
 
 3. Employee
 
-   - id: SERIAL PRIMARY KEY
-   - first_name: VARCHAR(30) NOT NULL
-   - last_name: VARCHAR(30) NOT NULL
-   - role_id: INTEGER NOT NULL (References role.id)
-   - manager_id: INTEGER (References employee.id)
+   - `id`: SERIAL PRIMARY KEY
+   - `first_name`: VARCHAR(30) NOT NULL
+   - `last_name`: VARCHAR(30) NOT NULL
+   - `role_id`: INTEGER NOT NULL (References `role.id`)
+   - `manager_id`: INTEGER (References `employee.id`)
 
-## Acknowledgements
+## Credits
 
-This project was created as part of a learning exercise and may contain simplistic implementations.
+This project was developed as a learning exercise and may feature basic implementations.
