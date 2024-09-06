@@ -1,0 +1,17 @@
+{
+  "name": "workforce-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "asciiart-logo": "^0.2.7",
+    "inquirer": "^10.2.0",
+    "pg": "^8.12.0"
+  }
+}
